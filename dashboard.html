@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Journal Trading - Dashboard (with section nav)</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="overlay"></div>
+
+  <button id="sidebarToggle" class="sidebar-toggle btn shadow-sm" aria-label="Toggle menu">☰</button>
+
+  <div class="d-flex main-wrap">
+    <!-- SIDEBAR -->
+    <aside id="sidebar" class="sidebar d-flex flex-column" aria-label="Main sidebar">
+      <div class="mb-3 d-flex align-items-center gap-2">
+        <div class="brand">JOURNAL</div>
+        <div class="small-muted d-none d-md-block">TRADING SAHAM</div>
+        <button id="collapseBtn" class="btn btn-sm btn-link ms-auto text-muted d-none d-md-inline" title="Collapse sidebar">⤫</button>
+      </div>
+
+      <nav class="nav flex-column mb-4" role="navigation">
+        <!-- data-target harus sama dengan id section -->
+        <a class="nav-link text-white d-flex align-items-center mb-2 nav-scroll" href="#" data-target="dashboard">
+          <span class="nav-icon" aria-hidden>🏠</span>
+          <span class="label">Dashboard</span>
+        </a>
+
+        <a class="nav-link text-white d-flex align-items-center mb-2 nav-scroll" href="#" data-target="portfolio">
+          <span class="nav-icon" aria-hidden>📁</span>
+          <span class="label">Portfolio</span>
+        </a>
+
+        <a class="nav-link text-white d-flex align-items-center mb-2 nav-scroll" href="#" data-target="pembelian">
+          <span class="nav-icon" aria-hidden>⬇️</span>
+          <span class="label">Pembelian</span>
+        </a>
+
+        <a class="nav-link text-white d-flex align-items-center mb-2 nav-scroll" href="#" data-target="penjualan">
+          <span class="nav-icon" aria-hidden>⬆️</span>
+          <span class="label">Penjualan</span>
+        </a>
+
+        <a class="nav-link text-white d-flex align-items-center mb-2 nav-scroll" href="#" data-target="account">
+          <span class="nav-icon" aria-hidden>👤</span>
+          <span class="label">Account</span>
+        </a>
+
+        <a class="nav-link text-white d-flex align-items-center mb-2 nav-scroll" href="#" data-target="data">
+          <span class="nav-icon" aria-hidden>📊</span>
+          <span class="label">Data</span>
+        </a>
+      </nav>
+
+      <div class="mt-auto small-muted">Made with Bootstrap + Chart.js</div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-fill p-4 content-area">
+      <div class="container-fluid">
+
+        <!-- SECTION: Dashboard (id=dashboard) -->
+        <section id="dashboard" class="mb-4">
+          <div class="row g-3 mb-3">
+            <div class="col-12 col-lg-6">
+              <div class="p-3 card-dk">
+                <div class="d-flex justify-content-between mb-2">
+                  <div><div class="small-muted">Sekuritas</div><div class="fw-semibold">CC</div></div>
+                  <div><div class="small-muted">Tahun</div><div class="fw-semibold">2023</div></div>
+                  <div><div class="small-muted">Bulan</div><div class="small-muted">Jan - Dec</div></div>
+                </div>
+                <div class="small-muted">Filter dan quick controls — contoh tampilan</div>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <div class="p-3 card-dk d-flex gap-3 align-items-center">
+                <div class="flex-fill">
+                  <div class="small-muted">Total Gross</div>
+                  <div class="stat-num">Rp60.538.774</div>
+                  <div class="small-muted">Realized P/L Rp1.741.352</div>
+                </div>
+                <div class="d-flex flex-column align-items-center justify-content-center">
+                  <div class="circle-stat mb-2"><div style="text-align:center"><div style="font-size:0.9rem">Win Rate</div><div style="font-weight:700">75%</div></div></div>
+                  <div class="small-muted text-center">2023</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION: Portfolio -->
+        <section id="portfolio" class="mb-4">
+          <div class="row g-3">
+            <div class="col-12">
+              <div class="p-3 card-dk">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h5 class="mb-0">Portfolio</h5>
+                  <div class="small-muted">Ringkasan portfolio & posisi</div>
+                </div>
+
+                <!-- contoh konten portfolio -->
+                <div class="table-responsive">
+                  <table class="table table-dark table-striped">
+                    <thead>
+                      <tr>
+                        <th>Symbol</th><th>Qty</th><th>Avg Price</th><th>Market Price</th><th>P/L</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>BBCA</td><td>10</td><td>Rp8.000</td><td>Rp9.000</td><td>Rp1.000</td></tr>
+                      <tr><td>TLKM</td><td>50</td><td>Rp2.500</td><td>Rp2.300</td><td>-Rp10.000</td></tr>
+                      <!-- tambahkan baris nyata nanti dari data -->
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION: Pembelian -->
+        <section id="pembelian" class="mb-4">
+          <div class="p-3 card-dk">
+            <h6>Pembelian</h6>
+            <p class="small-muted">Daftar pembelian yang pernah dilakukan.</p>
+          </div>
+        </section>
+
+        <!-- SECTION: Penjualan -->
+        <section id="penjualan" class="mb-4">
+          <div class="p-3 card-dk">
+            <h6>Penjualan</h6>
+            <p class="small-muted">Daftar penjualan dan realisasi P/L.</p>
+          </div>
+        </section>
+
+        <!-- SECTION: Account -->
+        <section id="account" class="mb-4">
+          <div class="p-3 card-dk">
+            <h6>Account</h6>
+            <p class="small-muted">Pengaturan akun & API key.</p>
+          </div>
+        </section>
+
+        <!-- SECTION: Data -->
+        <section id="data" class="mb-4">
+          <div class="p-3 card-dk">
+            <h6>Data</h6>
+            <p class="small-muted">Upload & sinkronisasi data.</p>
+          </div>
+        </section>
+
+        <!-- bottom preview (image) -->
+        <div class="row g-3 mt-3">
+          <div class="col-12 col-md-4">
+            <div class="p-3 card-dk h-100">
+              <h6 class="mb-2">Quick Preview</h6>
+              <img src="/mnt/data/8dab4b59-6b9e-4cff-b41d-7fc47de77dc1.png" alt="preview" class="left-img">
+            </div>
+          </div>
+
+          <div class="col-12 col-md-8">
+            <div class="p-3 card-dk">
+              <h6 class="mb-2">Insights</h6>
+              <div class="row">
+                <div class="col-6">
+                  <div class="small-muted">Strategy vs Net P/L</div>
+                  <div class="fw-semibold">BOW 99% / BOS 1%</div>
+                </div>
+                <div class="col-6 small-muted">Contoh ringkasan performa bulanan dan strategi.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- App JS -->
+  <script src="app.js"></script>
+</body>
+</html>
